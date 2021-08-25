@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>browser_automation package &mdash; browser-automationpy  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to browser-automationpy’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> browser-automationpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">browser_automation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-browser_automation.browser_manipulation">browser_automation.browser_manipulation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-browser_automation.browser_setup">browser_automation.browser_setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-browser_automation.locate_elements">browser_automation.locate_elements module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-browser_automation.os_json_utils">browser_automation.os_json_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-browser_automation">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">browser-automationpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>browser_automation package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/browser_automation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="browser-automation-package">
+<h1>browser_automation package<a class="headerlink" href="#browser-automation-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-browser_automation.browser_manipulation">
+<span id="browser-automation-browser-manipulation-module"></span><h2>browser_automation.browser_manipulation module<a class="headerlink" href="#module-browser_automation.browser_manipulation" title="Permalink to this headline">¶</a></h2>
+<p>Module: browser_manipulation
+This module contains functions and classes related to manipulation of browser. such as get html source code,
+fill_input_on_webpage, write_in_input_box, click_on_button.
+To do: change the exceptions to selenium exceptions by importing the selenium exceptions from selenium.common.exceptions</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.browser_manipulation.</span></span><span class="sig-name descname"><span class="pre">Interactions</span></span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#browser_automation.browser_setup.Setup" title="browser_automation.browser_setup.Setup"><code class="xref py py-class docutils literal notranslate"><span class="pre">browser_automation.browser_setup.Setup</span></code></a></p>
+<p>This is class for doing manipulations with web elements using selenium drivers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.articles_gathering_loop">
+<span class="sig-name descname"><span class="pre">articles_gathering_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">articles_name_list</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_search_link</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_button_locator_element_xpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_folder_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scroll</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open_button</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.articles_gathering_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.articles_gathering_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a sample loop for gathering the data(research articles).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>articles_name_list</strong> (<em>list</em>) – This list contains the name of search argument in website search box.</p></li>
+<li><p><strong>initial_search_link</strong> (<em>str</em>) – This is the link where we have to get data.</p></li>
+<li><p><strong>pdf_button_locator_element_xpath</strong> (<em>str</em>) – This is the xpath address of the element of data download button.</p></li>
+<li><p><strong>destination_folder_path</strong> (<em>str</em>) – This is the path of the folder where we want to move our downloaded data.</p></li>
+<li><p><strong>scroll</strong> (<em>bool</em>) – This is the option to switch on scroll on the page.</p></li>
+<li><p><strong>open_button</strong> (<em>bool</em>) – This is the additional dialogue box after clicking on download button.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.button_click_by_xpath">
+<span class="sig-name descname"><span class="pre">button_click_by_xpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">button_element_xpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.button_click_by_xpath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.button_click_by_xpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>ButtonElementXpath used to find and click on the button</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>button_element_xpath</strong> (<em>str</em>) – This is the address of locator type ‘XPATH’ for button element.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.change_window">
+<span class="sig-name descname"><span class="pre">change_window</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.change_window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.change_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>It changes the current window to last window in browser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.click_on_button">
+<span class="sig-name descname"><span class="pre">click_on_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.click_on_button"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.click_on_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>click on button on web by searching element_locator_path. exceptions silenced</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_locator_type</strong> (<em>str</em>) – these by selenium methods to locate web element. This function contains CLASS_NAME, CSS_SELECTOR, ID,
+LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</p></li>
+<li><p><strong>element_locator_path</strong> (<em>str</em>) – path of above given element_locator_type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.create_article_weblink_and_browse">
+<span class="sig-name descname"><span class="pre">create_article_weblink_and_browse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_search_link</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_argument</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.create_article_weblink_and_browse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.create_article_weblink_and_browse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some website can directly take search argument after their link. so this function put the search argument
+after initial_search_link.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial_search_link</strong> (<em>str</em>) – This is the web link that can be used to append search argument and return required data page.</p></li>
+<li><p><strong>search_argument</strong> (<em>str</em>) – This can be any search string such as article name in research database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.driver_wait">
+<span class="sig-name descname"><span class="pre">driver_wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_duration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.driver_wait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.driver_wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>This makes the driver idle for time_duration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time_duration</strong> (<em>float</em>) – This is the time for which we want out driver to stay idle to minimize load on web server.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns wait time of time_duration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.fill_input_on_webpage">
+<span class="sig-name descname"><span class="pre">fill_input_on_webpage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word_seen_in_website</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.fill_input_on_webpage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.fill_input_on_webpage" title="Permalink to this definition">¶</a></dt>
+<dd><p>this function fill the input box on webpage with the help of wordSeenInWebsite, with the inputAnswer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word_seen_in_website</strong> (<em>str</em>) – word that you see in input box on website</p></li>
+<li><p><strong>element_name</strong> (<em>str</em>) – ID, Name, Class etc. of html element</p></li>
+<li><p><strong>input_answer</strong> (<em>str</em>) – answer that you want to put in the input box of webpage</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.find_web_element">
+<span class="sig-name descname"><span class="pre">find_web_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.find_web_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.find_web_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>click on button on web by searching element_locator_path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_locator_type</strong> (<em>str</em>) – <dl class="simple">
+<dt>these by selenium methods to locate web element. This function contains</dt><dd><p>CLASS_NAME, CSS_SELECTOR, ID, LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>element_locator_path</strong> (<em>str</em>) – This is the address of given element_locator_type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>selenium.webdriver.remote.webelement.WebElement, It could be input_box or button etc.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.get_current_webpage">
+<span class="sig-name descname"><span class="pre">get_current_webpage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.get_current_webpage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.get_current_webpage" title="Permalink to this definition">¶</a></dt>
+<dd><p>html_source_code: complete html of page</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>It is html source code of current webpage.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.input_box_by_name">
+<span class="sig-name descname"><span class="pre">input_box_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.input_box_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.input_box_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input answer in input box by searching element Name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – This is element locator Name, visit - <a class="reference external" href="https://selenium-python.readthedocs.io/">https://selenium-python.readthedocs.io/</a></p></li>
+<li><p><strong>answer</strong> (<em>str</em>) – This is the input string you want to put in input box on webpage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.input_box_by_xpath">
+<span class="sig-name descname"><span class="pre">input_box_by_xpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpath_element</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.input_box_by_xpath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.input_box_by_xpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input answer in input box by searching element Name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xpath_element</strong> (<em>str</em>) – This is the address in xpath format, visit - <a class="reference external" href="https://selenium-python.readthedocs.io/">https://selenium-python.readthedocs.io/</a></p></li>
+<li><p><strong>answer</strong> (<em>str</em>) – This is the input string you want to put in input box on webpage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.multiple_try_to_find_web_element">
+<span class="sig-name descname"><span class="pre">multiple_try_to_find_web_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_element_locator_types_with_addresses</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.multiple_try_to_find_web_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.multiple_try_to_find_web_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>This functions uses multiple try statements to find_web_element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_element_locator_types_with_addresses</strong> (<em>str</em>) – This is the list with element_locator_types such as CLASS_NAME,CSS_SELECTOR, ID, LINK_TEXT, NAME,
+PARTIAL_LINK_TEXT, TAG_NAME, XPATH with respective addresses. example- [“id”, “result-header-1”, “xpath”,
+“//h3[&#64;id=’result-header-1’]”]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The web_element object from selenium driver. selenium.webdriver.remote.webelement.WebElement</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.scroll_page">
+<span class="sig-name descname"><span class="pre">scroll_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scroll_until</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">4000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scroll_height</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.scroll_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.scroll_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>this scroll the page to load all of details</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scroll_until</strong> (<em>int</em>) – This is the total amount of scrolling.</p></li>
+<li><p><strong>scroll_height</strong> (<em>int</em>) – This is how much scroll is happen in one go.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.try_element_address">
+<span class="sig-name descname"><span class="pre">try_element_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.try_element_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.try_element_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is try except block for searching element via element_locator_type, element_locator_path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_locator_type</strong> (<em>str</em>) – <dl class="simple">
+<dt>These by selenium methods to locate web element. This function contains</dt><dd><p>CLASS_NAME, CSS_SELECTOR, ID, LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>element_locator_path</strong> (<em>str</em>) – This is the address of given element_locator_type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This is bool representing if web_element found or not.
+object - web element from selenium. selenium.webdriver.remote.webelement.WebElement</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.web_element_multiple_try_to_click_or_write">
+<span class="sig-name descname"><span class="pre">web_element_multiple_try_to_click_or_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_element_locator_types_with_addresses</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_something</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.web_element_multiple_try_to_click_or_write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.web_element_multiple_try_to_click_or_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes list of element_locator types with addresses to click or write in input_box.
+Note - This is worst case of finding different addresses for same web element on website</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_of_element_locator_types_with_addresses</strong> (<em>str</em>) – This is the list with element_locator_types such as CLASS_NAME,CSS_SELECTOR, ID, LINK_TEXT, NAME,
+PARTIAL_LINK_TEXT, TAG_NAME, XPATH with respective addresses. example- [“id”, “result-header-1”, “xpath”,
+“//h3[&#64;id=’result-header-1’]”]</p></li>
+<li><p><strong>write_something</strong> (<em>str</em>) – default is None which signify that click() function will be executed. if you want to write something in
+found web element, please replace None to your input string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.website_login">
+<span class="sig-name descname"><span class="pre">website_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username_element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username_element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password_element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password_element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">login_button_element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">login_button_element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">login_option_element_locator_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">login_option_element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.website_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.website_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>login into website using these arguments Args: driver: url: username_element_name: username: this
+is the username of person already sign up on website password: password for above username of account</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – This is link for website.</p></li>
+<li><p><strong>username_element_locator_type</strong> (<em>str</em>) – This is locator type for username_element for username.</p></li>
+<li><p><strong>username_element_locator_path</strong> (<em>str</em>) – This is the address of locator type.</p></li>
+<li><p><strong>username</strong> (<em>str</em>) – This is the input username for given website.</p></li>
+<li><p><strong>password_element_locator_type</strong> (<em>str</em>) – This is locator type for password_element.</p></li>
+<li><p><strong>password_element_locator_path</strong> (<em>str</em>) – This is address of locator type for password.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – This is the input password for given website.</p></li>
+<li><p><strong>login_button_element_locator_type</strong> (<em>str</em>) – This is locator type for login button_element.</p></li>
+<li><p><strong>login_button_element_locator_path</strong> (<em>str</em>) – This is the address of locator type for login_button.</p></li>
+<li><p><strong>login_option_element_locator_type</strong> (<em>str</em>) – This is locator type for login_option button_element.</p></li>
+<li><p><strong>login_option_element_locator_path</strong> (<em>str</em>) – This is the address of locator type for login_option.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions.write_in_input_box">
+<span class="sig-name descname"><span class="pre">write_in_input_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_locator_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_locator_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions.write_in_input_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions.write_in_input_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input answer in input box by searching element_locator_path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_locator_type</strong> (<em>str</em>) – these by selenium methods to locate web element. This function contains
+CLASS_NAME, CSS_SELECTOR, ID, LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</p></li>
+<li><p><strong>element_locator_path</strong> (<em>str</em>) – path of above given element_locator_type</p></li>
+<li><p><strong>input_answer</strong> (<em>str</em>) – This is the input string you want to put in input box on webpage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-browser_automation.browser_setup">
+<span id="browser-automation-browser-setup-module"></span><h2>browser_automation.browser_setup module<a class="headerlink" href="#module-browser_automation.browser_setup" title="Permalink to this headline">¶</a></h2>
+<p>Module: browser_setup
+This is the sole of the python package. It helps setup the required browser and with custom options.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="browser_automation.browser_setup.CustomOptions">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.browser_setup.</span></span><span class="sig-name descname"><span class="pre">CustomOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_browser_options_json_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_setup.html#CustomOptions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_setup.CustomOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_setup.CustomOptions.get_browser_custom_options_dict">
+<span class="sig-name descname"><span class="pre">get_browser_custom_options_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_setup.html#CustomOptions.get_browser_custom_options_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_setup.CustomOptions.get_browser_custom_options_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns browser custom options dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This provide the list of current browser options.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.browser_setup.CustomOptions.get_default_custom_options_json">
+<span class="sig-name descname"><span class="pre">get_default_custom_options_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_setup.html#CustomOptions.get_default_custom_options_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_setup.CustomOptions.get_default_custom_options_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function write a sample json file for the user to edit for custom options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output_file_path</strong> (<em>str</em>) – This is the path for writing the sample json file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="browser_automation.browser_setup.Setup">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.browser_setup.</span></span><span class="sig-name descname"><span class="pre">Setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_browser_options_json_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_setup.html#Setup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_setup.Setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-browser_automation.locate_elements">
+<span id="browser-automation-locate-elements-module"></span><h2>browser_automation.locate_elements module<a class="headerlink" href="#module-browser_automation.locate_elements" title="Permalink to this headline">¶</a></h2>
+<p>Module: locate_element
+This module help in getting the address for selenium.webdriver.remote.webelement.WebElement
+Note - Try using the extension for finding the web elements rather than this module. Use this as the last resort.
+Examples - My favorite <a class="reference external" href="https://selectorshub.com/">https://selectorshub.com/</a> This website contains full documentation and videos. Just provide the
+extension filepath in browser setup options. Other example - <a class="reference external" href="https://www.ranorex.com/selocity/browser-extension/">https://www.ranorex.com/selocity/browser-extension/</a>,
+‘chropath’ <a class="reference external" href="https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo">https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="browser_automation.locate_elements.LocateElements">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.locate_elements.</span></span><span class="sig-name descname"><span class="pre">LocateElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html_source_code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/locate_elements.html#LocateElements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.locate_elements.LocateElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.locate_elements.LocateElements.get_element_name_value_regex">
+<span class="sig-name descname"><span class="pre">get_element_name_value_regex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word_seen_in_website</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/locate_elements.html#LocateElements.get_element_name_value_regex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.locate_elements.LocateElements.get_element_name_value_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>This get element locator type and its value or address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_name</strong> (<em>str</em>) – ID, Name, Class etc. of html element</p></li>
+<li><p><strong>word_seen_in_website</strong> (<em>str</em>) – snippet of Html which has your element Name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This contains list of element type and address.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.locate_elements.LocateElements.get_element_value_from_html">
+<span class="sig-name descname"><span class="pre">get_element_value_from_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word_seen_in_website</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/browser_automation/locate_elements.html#LocateElements.get_element_value_from_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.locate_elements.LocateElements.get_element_value_from_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>This return only the address of web element of required element type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>word_seen_in_website</strong> (<em>str</em>) – word that you see in input box on website</p></li>
+<li><p><strong>element_name</strong> (<em>str</em>) – ID, Name, Class etc. of html element</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>get element value ex: ember51</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.locate_elements.LocateElements.get_link_via_regex">
+<span class="sig-name descname"><span class="pre">get_link_via_regex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/locate_elements.html#LocateElements.get_link_via_regex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.locate_elements.LocateElements.get_link_via_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific function for IEEE xplore pdf open button</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>link of some sort from website</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.locate_elements.LocateElements.snippet_html">
+<span class="sig-name descname"><span class="pre">snippet_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word_seen_in_website</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/browser_automation/locate_elements.html#LocateElements.snippet_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.locate_elements.LocateElements.snippet_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the important chunk of html source code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>word_seen_in_website</strong> (<em>str</em>) – word that you see in input box on website</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>snippet of Html which has your element Name</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.locate_elements.get_element_value">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.locate_elements.</span></span><span class="sig-name descname"><span class="pre">get_element_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_name_value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/browser_automation/locate_elements.html#get_element_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.locate_elements.get_element_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function uses regex patter to find the element value from element name and value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>element_name_value</strong> (<em>str</em>) – element name and element value ex: id=”ember51”</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>get element value ex: ember51</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-browser_automation.os_json_utils">
+<span id="browser-automation-os-json-utils-module"></span><h2>browser_automation.os_json_utils module<a class="headerlink" href="#module-browser_automation.os_json_utils" title="Permalink to this headline">¶</a></h2>
+<p>Module: os_json_utils
+This module contains functions related to getting or writing files from os. This also include json read and write
+functions for use in browser options. This also contains sleeping and waiting for the file to be downloaded.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.DownloadUtil">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">DownloadUtil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">download_dir</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#DownloadUtil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.DownloadUtil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.DownloadUtil.download_completion_wait">
+<span class="sig-name descname"><span class="pre">download_completion_wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files_counts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#DownloadUtil.download_completion_wait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.DownloadUtil.download_completion_wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for downloads to finish with a specified timeout.
+author: <a class="reference external" href="https://stackoverflow.com/questions/34338897/python-selenium-find-out-when-a-download-has-completed">https://stackoverflow.com/questions/34338897/python-selenium-find-out-when-a-download-has-completed</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeout</strong> (<em>int</em>) – How many seconds to wait until timing out.</p></li>
+<li><p><strong>files_counts</strong> (<em>str</em>) – If provided, also wait for the expected number of files.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.DownloadUtil.file_rename_and_moving">
+<span class="sig-name descname"><span class="pre">file_rename_and_moving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_folder_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#DownloadUtil.file_rename_and_moving"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.DownloadUtil.file_rename_and_moving" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function waits with timeout option until file is downloaded in origin folder. then
+rename and move it to destination folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination_folder_path</strong> (<em>str</em>) – This is the address of destination folder where we want to move files from download location.</p></li>
+<li><p><strong>new_name</strong> (<em>str</em>) – This is the new name of file we just downloaded and want to change previous name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.RandomSleep">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">RandomSleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_time_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_time_limit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">15.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#RandomSleep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.RandomSleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.RandomSleep.random_time">
+<span class="sig-name descname"><span class="pre">random_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#RandomSleep.random_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.RandomSleep.random_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>this gives random_time between lower_time_limit and upper_time_limit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This contains random value between lower and upper time limit.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.RandomSleep.sleep_after_n_monotonous_work">
+<span class="sig-name descname"><span class="pre">sleep_after_n_monotonous_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonous_work</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_sleep_multiple</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#RandomSleep.sleep_after_n_monotonous_work"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.RandomSleep.sleep_after_n_monotonous_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>sleep every n applications</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – This signify number of loop or repetitive tries.</p></li>
+<li><p><strong>monotonous_work</strong> (<em>int</em>) – temporary variable to count the repetitive tries.</p></li>
+<li><p><strong>random_sleep_multiple</strong> (<em>float</em>) – This is the value by which you want to multiply the random time.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.RandomSleep.sleep_for_random_time">
+<span class="sig-name descname"><span class="pre">sleep_for_random_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#RandomSleep.sleep_for_random_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.RandomSleep.sleep_for_random_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>this sleep for some time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.avoid_lock">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">avoid_lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#avoid_lock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.avoid_lock" title="Permalink to this definition">¶</a></dt>
+<dd><p>this uses mouse and keyboard to act human is using the computer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.config_file_path">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">config_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'config.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#config_file_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.config_file_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is useful if config file is in grandparent directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config_name</strong> (<em>str</em>) – This is the name of json config file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>path of the config file at grandparent directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.finding_grandparent_dir_from_cwd">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">finding_grandparent_dir_from_cwd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#finding_grandparent_dir_from_cwd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.finding_grandparent_dir_from_cwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>This provide the grand parent directory from current working directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>grand parent directory name</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.get_download_location_path">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">get_download_location_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#get_download_location_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.get_download_location_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the default download location based on operating system. Written for chrome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>default download location of browser.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.read_json_file_from_path">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">read_json_file_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#read_json_file_from_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.read_json_file_from_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the json file from the path given. Convert json file data to the python dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>json_file_path</strong> (<em>str</em>) – This is the json file path which is needed to be converted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This is the data in dict format converted from json file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.replace_symbols_with_space">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">replace_symbols_with_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#replace_symbols_with_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.replace_symbols_with_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>replace symbols in string with spaces. Example - ‘df%$df’ -&gt; ‘df  df’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – This is input word string which contains unwanted symbols.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This is cleaned string from symbols and contains only alpha characters and all lowercase character string.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.sleep">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_duration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#sleep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>this function sleep for given Time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time_duration</strong> (<em>float</em>) – This is the duration of time, you want script to sleep.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.write_json_file_with_dict">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">write_json_file_with_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#write_json_file_with_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.write_json_file_with_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write json file at output_file_path with the help of input dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_file_path</strong> (<em>str</em>) – This is the path of output file we want, if only name is provided then it will export json to the script path.</p></li>
+<li><p><strong>input_dict</strong> (<em>dict</em>) – This is the python dictionary which we want to be saved in json file format.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Function doesn’t return anything but write a json file at output_file_path.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-browser_automation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-browser_automation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to browser-automationpy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, chandravesh chaudhari.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

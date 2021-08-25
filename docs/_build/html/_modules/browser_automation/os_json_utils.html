@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>browser_automation.os_json_utils &mdash; browser-automationpy  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> browser-automationpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automation.html">browser_automation package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">browser-automationpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>browser_automation.os_json_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for browser_automation.os_json_utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module: os_json_utils</span>
+<span class="sd">This module contains functions related to getting or writing files from os. This also include json read and write</span>
+<span class="sd">functions for use in browser options. This also contains sleeping and waiting for the file to be downloaded.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pyautogui</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<div class="viewcode-block" id="finding_grandparent_dir_from_cwd"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.finding_grandparent_dir_from_cwd">[docs]</a><span class="k">def</span> <span class="nf">finding_grandparent_dir_from_cwd</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;This provide the grand parent directory from current working directory.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        grand parent directory name</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">present_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">present_dir</span><span class="p">)</span>
+    <span class="n">grandparent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grandparent_dir</span></div>
+
+
+<div class="viewcode-block" id="config_file_path"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.config_file_path">[docs]</a><span class="k">def</span> <span class="nf">config_file_path</span><span class="p">(</span><span class="n">config_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;config.json&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is useful if config file is in grandparent directory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_name : str</span>
+<span class="sd">        This is the name of json config file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        path of the config file at grandparent directory.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grandparent_dir</span> <span class="o">=</span> <span class="n">finding_grandparent_dir_from_cwd</span><span class="p">()</span>
+    <span class="n">config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">grandparent_dir</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config_path</span></div>
+
+
+<div class="viewcode-block" id="write_json_file_with_dict"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.write_json_file_with_dict">[docs]</a><span class="k">def</span> <span class="nf">write_json_file_with_dict</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Write json file at output_file_path with the help of input dictionary.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    output_file_path : str</span>
+<span class="sd">        This is the path of output file we want, if only name is provided then it will export json to the script path.</span>
+<span class="sd">    input_dict : dict</span>
+<span class="sd">        This is the python dictionary which we want to be saved in json file format.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Function doesn&#39;t return anything but write a json file at output_file_path.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">input_dict</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="read_json_file_from_path"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.read_json_file_from_path">[docs]</a><span class="k">def</span> <span class="nf">read_json_file_from_path</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read the json file from the path given. Convert json file data to the python dictionary.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    json_file_path : str</span>
+<span class="sd">        This is the json file path which is needed to be converted.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        This is the data in dict format converted from json file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">openfile</span><span class="p">:</span>
+        <span class="c1"># Reading from json file</span>
+        <span class="n">json_object</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">openfile</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json_object</span></div>
+
+
+<div class="viewcode-block" id="avoid_lock"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.avoid_lock">[docs]</a><span class="k">def</span> <span class="nf">avoid_lock</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    this uses mouse and keyboard to act human is using the computer</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pyautogui</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+    <span class="n">pyautogui</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">200</span><span class="p">,</span> <span class="n">pyautogui</span><span class="o">.</span><span class="n">position</span><span class="p">()</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">pyautogui</span><span class="o">.</span><span class="n">moveTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pyautogui</span><span class="o">.</span><span class="n">position</span><span class="p">()</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">pyautogui</span><span class="o">.</span><span class="n">keyDown</span><span class="p">(</span><span class="s1">&#39;ctrl&#39;</span><span class="p">)</span>
+    <span class="n">pyautogui</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;esc&#39;</span><span class="p">)</span>
+    <span class="n">pyautogui</span><span class="o">.</span><span class="n">keyUp</span><span class="p">(</span><span class="s1">&#39;ctrl&#39;</span><span class="p">)</span>
+    <span class="n">pyautogui</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;esc&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="sleep"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.sleep">[docs]</a><span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="n">time_duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    this function sleep for given Time</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time_duration : float</span>
+<span class="sd">        This is the duration of time, you want script to sleep.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sleeping for </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time_duration</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">time_duration</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_download_location_path"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.get_download_location_path">[docs]</a><span class="k">def</span> <span class="nf">get_download_location_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Get the default download location based on operating system. Written for chrome.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        default download location of browser.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">current_os</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">current_os</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span><span class="p">:</span>
+        <span class="n">default_download_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/home/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/Downloads&quot;</span>
+    <span class="k">elif</span> <span class="n">current_os</span> <span class="o">==</span> <span class="s2">&quot;Darwin&quot;</span><span class="p">:</span>
+        <span class="n">default_download_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/Users/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">/Downloads&quot;</span>
+    <span class="k">elif</span> <span class="n">current_os</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+        <span class="n">default_download_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="se">\\</span><span class="s2">Downloads&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">default_download_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;please provide the default download location of your browser&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">default_download_path</span></div>
+
+
+<div class="viewcode-block" id="RandomSleep"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.RandomSleep">[docs]</a><span class="k">class</span> <span class="nc">RandomSleep</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower_time_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">upper_time_limit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">15.3</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This class contains methods related to make programme sleep for some exact or random time.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        lower_time_limit : float</span>
+<span class="sd">            This is the least amount of duration we want programme to sleep.</span>
+<span class="sd">        upper_time_limit : float</span>
+<span class="sd">            This is the maximum amount of duration we want programme to sleep.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lower_time_limit</span> <span class="o">=</span> <span class="n">lower_time_limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upper_time_limit</span> <span class="o">=</span> <span class="n">upper_time_limit</span>
+
+<div class="viewcode-block" id="RandomSleep.random_time"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.RandomSleep.random_time">[docs]</a>    <span class="k">def</span> <span class="nf">random_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this gives random_time between lower_time_limit and upper_time_limit.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            This contains random value between lower and upper time limit.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">random_out_time</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower_time_limit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper_time_limit</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">random_out_time</span></div>
+
+<div class="viewcode-block" id="RandomSleep.sleep_for_random_time"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.RandomSleep.sleep_for_random_time">[docs]</a>    <span class="k">def</span> <span class="nf">sleep_for_random_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this sleep for some time</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">random_time_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sleeping for </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">random_time_duration</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random_time_duration</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RandomSleep.sleep_after_n_monotonous_work"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.RandomSleep.sleep_after_n_monotonous_work">[docs]</a>    <span class="k">def</span> <span class="nf">sleep_after_n_monotonous_work</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">monotonous_work</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">random_sleep_multiple</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">15</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sleep every n applications</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n : int</span>
+<span class="sd">            This signify number of loop or repetitive tries.</span>
+<span class="sd">        monotonous_work : int</span>
+<span class="sd">            temporary variable to count the repetitive tries.</span>
+<span class="sd">        random_sleep_multiple : float</span>
+<span class="sd">            This is the value by which you want to multiply the random time.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">monotonous_work</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">monotonous_work</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random_sleep_multiple</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_time</span><span class="p">())</span></div></div>
+
+
+<div class="viewcode-block" id="DownloadUtil"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.DownloadUtil">[docs]</a><span class="k">class</span> <span class="nc">DownloadUtil</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">download_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This help in moving the downloaded data to destination folder and waiting unto data is downloaded.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        download_dir : str</span>
+<span class="sd">            This is the address of download location.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">download_dir</span> <span class="o">=</span> <span class="n">download_dir</span>
+
+<div class="viewcode-block" id="DownloadUtil.download_completion_wait"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.DownloadUtil.download_completion_wait">[docs]</a>    <span class="k">def</span> <span class="nf">download_completion_wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">files_counts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait for downloads to finish with a specified timeout.</span>
+<span class="sd">        author: https://stackoverflow.com/questions/34338897/python-selenium-find-out-when-a-download-has-completed</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        timeout : int</span>
+<span class="sd">            How many seconds to wait until timing out.</span>
+<span class="sd">        files_counts : str</span>
+<span class="sd">            If provided, also wait for the expected number of files.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">seconds</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">waiting</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">while</span> <span class="n">waiting</span> <span class="ow">and</span> <span class="n">seconds</span> <span class="o">&lt;</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">waiting</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">download_dir</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">files_counts</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">!=</span> <span class="n">files_counts</span><span class="p">:</span>
+                <span class="n">waiting</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.crdownload&#39;</span><span class="p">):</span>
+                    <span class="n">waiting</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="n">seconds</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="DownloadUtil.file_rename_and_moving"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.DownloadUtil.file_rename_and_moving">[docs]</a>    <span class="k">def</span> <span class="nf">file_rename_and_moving</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination_folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function waits with timeout option until file is downloaded in origin folder. then</span>
+<span class="sd">        rename and move it to destination folder.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        destination_folder_path : str</span>
+<span class="sd">            This is the address of destination folder where we want to move files from download location.</span>
+<span class="sd">        new_name : str</span>
+<span class="sd">            This is the new name of file we just downloaded and want to change previous name.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">download_completion_wait</span><span class="p">()</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">download_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">download_dir</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getctime</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_name</span><span class="p">:</span>
+            <span class="n">name_with_extension</span> <span class="o">=</span> <span class="n">replace_symbols_with_space</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">new_name</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_folder_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">name_with_extension</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">destination_folder_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span><span class="p">))))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file renamed and moved&quot;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="replace_symbols_with_space"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.os_json_utils.replace_symbols_with_space">[docs]</a><span class="k">def</span> <span class="nf">replace_symbols_with_space</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;replace symbols in string with spaces. Example - &#39;df%$df&#39; -&gt; &#39;df  df&#39;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    string : str</span>
+<span class="sd">        This is input word string which contains unwanted symbols.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        This is cleaned string from symbols and contains only alpha characters and all lowercase character string.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">character</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="n">alpha</span> <span class="o">+=</span> <span class="n">character</span>
+        <span class="k">elif</span> <span class="n">character</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">+=</span> <span class="n">character</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span>
+    <span class="k">return</span> <span class="n">alpha</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;main&quot;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, chandravesh chaudhari.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

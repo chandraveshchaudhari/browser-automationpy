@@ -1,0 +1,62 @@
+import setuptools
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+"""with open('LICENSE.txt') as f:
+    license = f.read()"""
+
+setuptools.setup(
+    name="browser-automationpy-CHANDRAVESH-CHAUDHARI",
+    version="0.0.15",
+    author="Chandravesh Chaudhari",
+    author_email="chandraveshchaudhari@gmail.com",
+    description="A python project for easily launching custom automated browser to reduce repetitive boring work.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/chandraveshchaudhari/browser-automationpy",
+    project_urls={
+        "Bug Tracker": "https://github.com/chandraveshchaudhari/browser-automationpy/issues",
+        'Bug Reports': 'https://github.com/chandraveshchaudhari/browser-automationpy/issues',
+        'Say Thanks!': 'https://saythanks.io/to/chandraveshchaudhari',
+        'Source': 'https://github.com/chandraveshchaudhari/browser-automationpy/',
+    },
+    classifiers=["Development Status :: 4 - Beta",
+                 "Topic :: Internet :: WWW/HTTP :: Browsers",
+                 "Intended Audience :: End Users/Desktop",
+                 'Programming Language :: Python :: 3',
+                 'Programming Language :: Python :: 3.6',
+                 'Programming Language :: Python :: 3.7',
+                 'Programming Language :: Python :: 3.8',
+                 'Programming Language :: Python :: 3.9',
+                 'Programming Language :: Python :: 3 :: Only',
+                 "License :: OSI Approved :: MIT License",
+                 "Operating System :: OS Independent",
+                 ],
+    keywords='browser, automation, selenium, testing, data mining',
+    package_dir={"": "src"},
+    # license=license,
+    install_requires=['certifi>=2021.5.30',
+                      'charset-normalizer>=2.0.4',
+                      'colorama>=0.4.4',
+                      'configparser>=5.0.2',
+                      'crayons>=0.4.0',
+                      'idna>=3.2',
+                      'MouseInfo>=0.1.3',
+                      'Pillow>=8.3.1',
+                      'PyAutoGUI>=0.9.53',
+                      'PyGetWindow>=0.0.9',
+                      'PyMsgBox>=1.0.9',
+                      'pyperclip>=1.8.2',
+                      'PyRect>=0.1.4',
+                      'PyScreeze>=0.1.27',
+                      'python3-xlib>=0.15',
+                      'PyTweening>=1.0.3',
+                      'requests>=2.26.0',
+                      'selenium>=3.141.0',
+                      'urllib3>=1.26.6',
+                      'webdriver-manager>=3.4.2'],
+    packages=setuptools.find_packages(where="src"),
+    # packages=find_packages(exclude=('tests', 'docs')),
+    python_requires=">=3.6",
+)
