@@ -119,6 +119,3 @@ class LocateElements:
         link = str(element_name_and_value[-1])
         return link
 
-
-if __name__ == "main":
-    pass

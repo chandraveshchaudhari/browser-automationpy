@@ -139,6 +139,3 @@ class Setup:
                 from webdriver_manager.chrome import ChromeDriverManager
                 self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=self.options)
 
-
-if __name__ == "main":
-    pass

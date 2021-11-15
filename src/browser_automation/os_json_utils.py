@@ -8,7 +8,6 @@ import os
 import platform
 import shutil
 import time
-import pyautogui
 import random
 
 
@@ -95,6 +94,13 @@ def avoid_lock():
     None
 
     """
+    try:
+        import pyautogui
+    except ImportError:
+        print("This function requires pyautogui library. Please install it using 'pip install PyAutoGUI' "
+              "visit https://pypi.org/project/PyAutoGUI/ for more information.")
+        return ""
+
     x, _ = pyautogui.position()
     pyautogui.moveTo(x + 200, pyautogui.position().y, duration=1.0)
     pyautogui.moveTo(x, pyautogui.position().y, duration=0.5)
@@ -301,6 +307,3 @@ def replace_symbols_with_space(string: str) -> str:
             alpha += " "
     return alpha
 
-
-if __name__ == "main":
-    pass

@@ -515,6 +515,3 @@ class Interactions(browser_setup.Setup):
                              "function or write separately!")
         return web_element
 
-
-if __name__ == "main":
-    pass
