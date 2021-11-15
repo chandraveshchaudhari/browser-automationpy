@@ -65,7 +65,7 @@ def write_json_file_with_dict(output_file_path: str, input_dict: dict):
         json.dump(input_dict, outfile)
 
 
-def read_json_file_from_path(json_file_path: str):
+def read_json_file_from_path(json_file_path: str) -> dict:
     """Read the json file from the path given. Convert json file data to the python dictionary.
 
     Parameters
@@ -307,3 +307,48 @@ def replace_symbols_with_space(string: str) -> str:
             alpha += " "
     return alpha
 
+
+def list_to_text_file(filename: str, list_name: str, permission: str = "w"):
+    """This converts list to text file and put each element in new line.
+
+    Parameters
+    ----------
+    filename : str
+        This is the name to be given for text file.
+    list_name : list
+        This is the python data structure list which contains some data.
+    permission : str
+        These are the os permissions given for the file. check more lemma_info on python library 'os'.
+
+    Returns
+    -------
+    None
+
+    """
+    with open(filename, permission) as file:
+        for i in list_name:
+            file.write(str(i))
+            file.write("\n")
+
+
+def load_text_file_to_list(file_path: str, permission: str = "r"):
+    """This converts text file to list and put each line in list as single element. get first line of text file by
+    list[0].
+
+    Parameters
+    ----------
+    file_path : str
+        This is the name to be given for text file.
+    permission : str
+        These are the os permissions given for the file. check more lemma_info on python library 'os'.
+
+    Returns
+    -------
+    list
+        This contains all lines loaded into list with one line per list element. [first line, second line,.... ]
+
+    """
+    with open(file_path, permission) as file:
+        file_object = file.read()
+
+    return file_object.split("\n")

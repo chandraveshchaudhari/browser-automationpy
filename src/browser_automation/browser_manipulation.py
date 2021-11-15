@@ -14,11 +14,11 @@ class Interactions(browser_setup.Setup):
     """
     This is class for doing manipulations with web elements using selenium drivers.
     """
-    def __init__(self):
+    def __init__(self, custom_browser_options_json_path=None):
         """
         Inherit from browser_setup.Setup and get the driver object for manipulation.
         """
-        super().__init__()
+        super().__init__(custom_browser_options_json_path)
 
     def driver_wait(self, time_duration: float):
         """This makes the driver idle for time_duration.

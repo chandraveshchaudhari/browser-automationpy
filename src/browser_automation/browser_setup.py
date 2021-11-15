@@ -22,20 +22,18 @@ class CustomOptions:
                                                                                  "--disable-blink-features",
                                                                                  "--disable-blink-features=AutomationControlled"]},
                                                                {"add_experimental_option": ["unpack", "prefs",
-                                                                                            {
-                                                                                                "download.default_directory": None,
-                                                                                                "download.prompt_for_download": False,
-                                                                                                "download.directory_upgrade": True,
-                                                                                                "plugins.always_open_pdf_externally": True}]}]}
+                                                                                            {"download.default_directory": None,
+                                                                                             "download.prompt_for_download": False,
+                                                                                             "download.directory_upgrade": True,
+                                                                                             "plugins.always_open_pdf_externally": True}]}]}
 
         self.custom_browser_options_json_path = custom_browser_options_json_path
         if self.custom_browser_options_json_path is None:
             self.browser_custom_options = self.browser_custom_dict
         else:
-            self.browser_custom_options = os_json_utils.read_json_file_from_path(
-                os_json_utils.read_json_file_from_path(self.custom_browser_options_json_path))
+            self.browser_custom_options = os_json_utils.read_json_file_from_path(self.custom_browser_options_json_path)
 
-    def get_default_custom_options_json(self, output_file_path: str):
+    def get_default_custom_options_json(self, output_file_path: str = "custom_options.json"):
         """This function write a sample json file for the user to edit for custom options.
 
         Parameters
