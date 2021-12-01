@@ -10,7 +10,6 @@
 - [Installation](#installation)
 - [Contact](#contact)
 - [Contribution](#contribution)
-- [Future Improvements](#future-improvements)
 
 ## Introduction
 The main objective of the Python framework is easily launching custom automated browser. 
