@@ -26,7 +26,8 @@ candidate at christ university, Bangalore under supervision of Dr. Geetanjali pu
 > Citation
 
 ## Features
-- Single line installation of all supported browsers   
+- one line code to install all supported browsers.
+- easy customisation for browsers such as adding extensions and changing download paths.
 - easy methods for clicking buttons or inputting data into web elements.
 - support for chrome, safari, mozilla, edge etc.
 - No need to download binary.
