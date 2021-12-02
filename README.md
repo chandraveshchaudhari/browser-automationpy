@@ -1,7 +1,7 @@
 # An open-source Python framework for Browser Automation : browser-automationpy
 <p align="center">
   <a href="https://github.com/chandraveshchaudhari/browser-automationpy">
-    <img width="60%" height="60%" src="https://github.com/chandraveshchaudhari/MachineLearningProjects/raw/master/ComputerVisionProjects/Object%20detection%20using%20ORB/images/photo.jpg">
+    <img width="60%" height="60%" src="https://raw.githubusercontent.com/browser-automationpy/data/browser-automationpy_logo.png">
   </a>
 </p>
 

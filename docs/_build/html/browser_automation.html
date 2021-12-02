@@ -35,13 +35,14 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to browser-automationpy’s documentation!" href="index.html" /> 
+    <link rel="prev" title="&lt;no title&gt;" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,7 +87,8 @@
               
             
             
-              <ul class="current">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">browser_automation package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-browser_automation.browser_manipulation">browser_automation.browser_manipulation module</a></li>
@@ -144,6 +146,8 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="modules.html">&lt;no title&gt;</a> &raquo;</li>
+        
       <li>browser_automation package</li>
     
     
@@ -163,7 +167,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="browser-automation-package">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="browser-automation-package">
 <h1>browser_automation package<a class="headerlink" href="#browser-automation-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
@@ -176,7 +204,7 @@ fill_input_on_webpage, write_in_input_box, click_on_button.
 To do: change the exceptions to selenium exceptions by importing the selenium exceptions from selenium.common.exceptions</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="browser_automation.browser_manipulation.Interactions">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.browser_manipulation.</span></span><span class="sig-name descname"><span class="pre">Interactions</span></span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">browser_automation.browser_manipulation.</span></span><span class="sig-name descname"><span class="pre">Interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_browser_options_json_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_manipulation.html#Interactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_manipulation.Interactions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#browser_automation.browser_setup.Setup" title="browser_automation.browser_setup.Setup"><code class="xref py py-class docutils literal notranslate"><span class="pre">browser_automation.browser_setup.Setup</span></code></a></p>
 <p>This is class for doing manipulations with web elements using selenium drivers.</p>
 <dl class="py method">
@@ -559,7 +587,7 @@ This is the sole of the python package. It helps setup the required browser and 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="browser_automation.browser_setup.CustomOptions.get_default_custom_options_json">
-<span class="sig-name descname"><span class="pre">get_default_custom_options_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_setup.html#CustomOptions.get_default_custom_options_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_setup.CustomOptions.get_default_custom_options_json" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_default_custom_options_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'custom_options.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/browser_setup.html#CustomOptions.get_default_custom_options_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.browser_setup.CustomOptions.get_default_custom_options_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function write a sample json file for the user to edit for custom options.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -854,8 +882,50 @@ rename and move it to destination folder.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.list_to_text_file">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">list_to_text_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permission</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#list_to_text_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.list_to_text_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>This converts list to text file and put each element in new line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – This is the name to be given for text file.</p></li>
+<li><p><strong>list_name</strong> (<em>list</em>) – This is the python data structure list which contains some data.</p></li>
+<li><p><strong>permission</strong> (<em>str</em>) – These are the os permissions given for the file. check more lemma_info on python library ‘os’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="browser_automation.os_json_utils.load_text_file_to_list">
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">load_text_file_to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permission</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#load_text_file_to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.load_text_file_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>This converts text file to list and put each line in list as single element. get first line of text file by
+list[0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – This is the name to be given for text file.</p></li>
+<li><p><strong>permission</strong> (<em>str</em>) – These are the os permissions given for the file. check more lemma_info on python library ‘os’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This contains all lines loaded into list with one line per list element. [first line, second line,…. ]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="browser_automation.os_json_utils.read_json_file_from_path">
-<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">read_json_file_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#read_json_file_from_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.read_json_file_from_path" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">browser_automation.os_json_utils.</span></span><span class="sig-name descname"><span class="pre">read_json_file_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/browser_automation/os_json_utils.html#read_json_file_from_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#browser_automation.os_json_utils.read_json_file_from_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the json file from the path given. Convert json file data to the python dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -936,7 +1006,7 @@ rename and move it to destination folder.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to browser-automationpy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

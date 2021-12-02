@@ -1,4 +1,4 @@
-src
+Documentation with code
 ===
 
 .. toctree::

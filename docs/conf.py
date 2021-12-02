@@ -12,15 +12,15 @@
 #
 # import os
 import sys
-sys.path.append("/home/chaudharyubuntu/PycharmProjects/browser-automationpy/src")
 
+sys.path.append("/home/chaudharyubuntu/PycharmProjects/browser-automationpy/src")
+sys.path.append("/home/chaudharyubuntu/PycharmProjects/browser-automationpy/data")
 
 # -- Project information -----------------------------------------------------
 
 project = 'browser-automationpy'
 copyright = '2021, chandravesh chaudhari'
 author = 'chandravesh chaudhari'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,8 +38,10 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.viewcode',
               ]
 # Add `code-include` so that the code-include directives used in this documentation work
+# add 'nbsphinx' to use jupyter notebooks.
 extensions += [
     "code_include.extension",
+    'nbsphinx',
 ]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -48,7 +50,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
 
 # -- Options for HTML output -------------------------------------------------
 

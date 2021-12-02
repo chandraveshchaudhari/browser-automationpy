@@ -35,6 +35,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -85,7 +86,8 @@
               
             
             
-              <ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../browser_automation.html">browser_automation package</a></li>
 </ul>
 
@@ -177,20 +179,18 @@
                                                                                  <span class="s2">&quot;--disable-blink-features&quot;</span><span class="p">,</span>
                                                                                  <span class="s2">&quot;--disable-blink-features=AutomationControlled&quot;</span><span class="p">]},</span>
                                                                <span class="p">{</span><span class="s2">&quot;add_experimental_option&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;unpack&quot;</span><span class="p">,</span> <span class="s2">&quot;prefs&quot;</span><span class="p">,</span>
-                                                                                            <span class="p">{</span>
-                                                                                                <span class="s2">&quot;download.default_directory&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-                                                                                                <span class="s2">&quot;download.prompt_for_download&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                                                                                                <span class="s2">&quot;download.directory_upgrade&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                                                                                                <span class="s2">&quot;plugins.always_open_pdf_externally&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}]}]}</span>
+                                                                                            <span class="p">{</span><span class="s2">&quot;download.default_directory&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;download.prompt_for_download&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;download.directory_upgrade&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;plugins.always_open_pdf_externally&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}]}]}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_browser_options_json_path</span> <span class="o">=</span> <span class="n">custom_browser_options_json_path</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_browser_options_json_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">browser_custom_options</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">browser_custom_dict</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">browser_custom_options</span> <span class="o">=</span> <span class="n">os_json_utils</span><span class="o">.</span><span class="n">read_json_file_from_path</span><span class="p">(</span>
-                <span class="n">os_json_utils</span><span class="o">.</span><span class="n">read_json_file_from_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_browser_options_json_path</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">browser_custom_options</span> <span class="o">=</span> <span class="n">os_json_utils</span><span class="o">.</span><span class="n">read_json_file_from_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_browser_options_json_path</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CustomOptions.get_default_custom_options_json"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_setup.CustomOptions.get_default_custom_options_json">[docs]</a>    <span class="k">def</span> <span class="nf">get_default_custom_options_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomOptions.get_default_custom_options_json"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_setup.CustomOptions.get_default_custom_options_json">[docs]</a>    <span class="k">def</span> <span class="nf">get_default_custom_options_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;custom_options.json&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;This function write a sample json file for the user to edit for custom options.</span>
 
 <span class="sd">        Parameters</span>
@@ -294,9 +294,6 @@
                 <span class="kn">from</span> <span class="nn">webdriver_manager.chrome</span> <span class="kn">import</span> <span class="n">ChromeDriverManager</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">ChromeDriverManager</span><span class="p">()</span><span class="o">.</span><span class="n">install</span><span class="p">(),</span> <span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span></div>
 
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;main&quot;</span><span class="p">:</span>
-    <span class="k">pass</span>
 </pre></div>
 
            </div>
