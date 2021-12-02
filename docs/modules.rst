@@ -1,5 +1,5 @@
-src
-===
+Documentation with code
+=======================
 
 .. toctree::
    :maxdepth: 4

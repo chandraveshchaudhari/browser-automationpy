@@ -10,11 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 import sys
 
-sys.path.append("/home/chaudharyubuntu/PycharmProjects/browser-automationpy/src")
-sys.path.append("/home/chaudharyubuntu/PycharmProjects/browser-automationpy/data")
+sys.path.insert(0, os.path.abspath('...'))
+sys.path.insert(0, os.path.abspath('../src'))
 
 # -- Project information -----------------------------------------------------
 
@@ -22,11 +22,15 @@ project = 'browser-automationpy'
 copyright = '2021, chandravesh chaudhari'
 author = 'chandravesh chaudhari'
 
+# The full version, including alpha/beta/rc tags
+release = '20'
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
               'sphinx.ext.coverage',
@@ -39,6 +43,7 @@ extensions = ['sphinx.ext.autodoc',
               ]
 # Add `code-include` so that the code-include directives used in this documentation work
 # add 'nbsphinx' to use jupyter notebooks.
+
 extensions += [
     "code_include.extension",
     'nbsphinx',
