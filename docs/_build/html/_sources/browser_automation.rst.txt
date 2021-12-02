@@ -1,9 +1,6 @@
 browser\_automation package
 ===========================
 
-Submodules
-----------
-
 browser\_automation.browser\_manipulation module
 ------------------------------------------------
 
@@ -32,14 +29,6 @@ browser\_automation.os\_json\_utils module
 ------------------------------------------
 
 .. automodule:: browser_automation.os_json_utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: browser_automation
    :members:
    :undoc-members:
    :show-inheritance:

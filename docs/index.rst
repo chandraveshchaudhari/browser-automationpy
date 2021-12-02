@@ -7,11 +7,11 @@ Welcome to browser-automationpy's documentation!
 ================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
    browser_automationpy_tutorial
-
+   modules
 
 Indices and tables
 ==================
