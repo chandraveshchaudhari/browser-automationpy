@@ -8,7 +8,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="browser-automationpy-CHANDRAVESH-CHAUDHARI",
-    version="0.0.20",
+    version="0.0.21",
     author="Chandravesh Chaudhari",
     author_email="chandraveshchaudhari@gmail.com",
     description="A python project for easily launching custom automated browser to reduce repetitive boring work.",

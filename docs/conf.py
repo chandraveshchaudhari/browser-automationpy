@@ -23,7 +23,7 @@ copyright = '2021, chandravesh chaudhari'
 author = 'chandravesh chaudhari'
 
 # The full version, including alpha/beta/rc tags
-release = '20'
+release = '21'
 
 # -- General configuration ---------------------------------------------------
 
@@ -42,7 +42,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.viewcode',
               ]
 # Add `code-include` so that the code-include directives used in this documentation work
-# add 'nbsphinx' to use jupyter notebooks.
+# add 'nbsphinx' or 'myst_nb' to use jupyter notebooks.
 
 extensions += [
     "code_include.extension",
