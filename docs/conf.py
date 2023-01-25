@@ -44,6 +44,10 @@ extensions = ['sphinx.ext.autodoc',
 # Add `code-include` so that the code-include directives used in this documentation work
 # add 'nbsphinx' or 'myst_nb' to use jupyter notebooks.
 
+extensions += [
+    "sphinx-code-include",
+    'myst_nb',
+]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
