@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>browser_automation.locate_elements &mdash; browser-automationpy 21 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> browser-automationpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automationpy_tutorial.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automationpy_tutorial.html#Browser-setup">Browser setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automationpy_tutorial.html#How-to-start-with-browser-automation">How to start with browser automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Documentation with code</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">browser-automationpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>browser_automation.locate_elements</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for browser_automation.locate_elements</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module: locate_element</span>
+<span class="sd">This module help in getting the address for selenium.webdriver.remote.webelement.WebElement</span>
+<span class="sd">Note - Try using the extension for finding the web elements rather than this module. Use this as the last resort.</span>
+<span class="sd">Examples - My favorite https://selectorshub.com/ This website contains full documentation and videos. Just provide the</span>
+<span class="sd">extension filepath in browser setup options. Other example - https://www.ranorex.com/selocity/browser-extension/,</span>
+<span class="sd">&#39;chropath&#39; https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<div class="viewcode-block" id="get_element_value"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.locate_elements.get_element_value">[docs]</a><span class="k">def</span> <span class="nf">get_element_value</span><span class="p">(</span><span class="n">element_name_value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function uses regex patter to find the element value from element name and value</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    element_name_value : str</span>
+<span class="sd">        element name and element value ex: id=&quot;ember51&quot;</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        get element value ex: ember51</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;&quot;[\w-]+&quot;&#39;</span>
+    <span class="n">element_value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">element_name_value</span><span class="p">)</span>
+    <span class="n">element_value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_value</span><span class="p">)</span>
+    <span class="n">regex1</span> <span class="o">=</span> <span class="s1">&#39;[\w-]+&#39;</span>
+    <span class="n">element_value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex1</span><span class="p">,</span> <span class="n">element_value</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">element_value</span></div>
+
+
+<div class="viewcode-block" id="LocateElements"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.locate_elements.LocateElements">[docs]</a><span class="k">class</span> <span class="nc">LocateElements</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html_source_code</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This class try to use regex to find elements types with addresses.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        html_source_code : str</span>
+<span class="sd">            This is the source code of the html.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">html_source_code</span> <span class="o">=</span> <span class="n">html_source_code</span>
+
+<div class="viewcode-block" id="LocateElements.snippet_html"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.locate_elements.LocateElements.snippet_html">[docs]</a>    <span class="k">def</span> <span class="nf">snippet_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_seen_in_website</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the important chunk of html source code</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        word_seen_in_website : str</span>
+<span class="sd">            word that you see in input box on website</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            snippet of Html which has your element Name</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">word_seen_in_website</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">word_seen_in_website</span><span class="p">)</span>
+        <span class="n">regex</span> <span class="o">=</span> <span class="s2">&quot;&lt;.+&quot;</span> <span class="o">+</span> <span class="n">word_seen_in_website</span> <span class="o">+</span> <span class="s2">&quot;.+&gt;&quot;</span>
+        <span class="n">snippet_html_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">html_source_code</span><span class="p">)</span>
+        <span class="n">snippet_html_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">snippet_html_text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">snippet_html_text</span></div>
+
+<div class="viewcode-block" id="LocateElements.get_element_name_value_regex"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.locate_elements.LocateElements.get_element_name_value_regex">[docs]</a>    <span class="k">def</span> <span class="nf">get_element_name_value_regex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word_seen_in_website</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This get element locator type and its value or address.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_name : str</span>
+<span class="sd">            ID, Name, Class etc. of html element</span>
+<span class="sd">        word_seen_in_website : str</span>
+<span class="sd">            snippet of Html which has your element Name</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            This contains list of element type and address.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">element_name</span> <span class="o">=</span> <span class="n">element_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">regex</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;=&quot;[\w-]+&quot;&#39;</span>
+        <span class="n">element_name_and_value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">snippet_html</span><span class="p">(</span><span class="n">word_seen_in_website</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">element_name_and_value</span></div>
+
+<div class="viewcode-block" id="LocateElements.get_element_value_from_html"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.locate_elements.LocateElements.get_element_value_from_html">[docs]</a>    <span class="k">def</span> <span class="nf">get_element_value_from_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_seen_in_website</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">element_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;This return only the address of web element of required element type.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        word_seen_in_website : str</span>
+<span class="sd">            word that you see in input box on website</span>
+<span class="sd">        element_name : str</span>
+<span class="sd">            ID, Name, Class etc. of html element</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            get element value ex: ember51</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">element_name_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element_name_value_regex</span><span class="p">(</span><span class="n">element_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">snippet_html</span><span class="p">(</span><span class="n">word_seen_in_website</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">get_element_value</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">element_name_value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="LocateElements.get_link_via_regex"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.locate_elements.LocateElements.get_link_via_regex">[docs]</a>    <span class="k">def</span> <span class="nf">get_link_via_regex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specific function for IEEE xplore pdf open button</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            link of some sort from website</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;([^&quot;]*)&#39;</span>
+        <span class="n">element_name_and_value</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">html_source_code</span><span class="p">)</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_name_and_value</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">link</span></div></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, chandravesh chaudhari.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

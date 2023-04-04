@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>browser_automation.browser_manipulation &mdash; browser-automationpy 21 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> browser-automationpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automationpy_tutorial.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automationpy_tutorial.html#Browser-setup">Browser setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../browser_automationpy_tutorial.html#How-to-start-with-browser-automation">How to start with browser automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Documentation with code</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">browser-automationpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>browser_automation.browser_manipulation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for browser_automation.browser_manipulation</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module: browser_manipulation</span>
+<span class="sd">This module contains functions and classes related to manipulation of browser. such as get html source code,</span>
+<span class="sd">fill_input_on_webpage, write_in_input_box, click_on_button.</span>
+<span class="sd">To do: change the exceptions to selenium exceptions by importing the selenium exceptions from selenium.common.exceptions</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">browser_automation</span> <span class="kn">import</span> <span class="n">browser_setup</span>
+<span class="kn">from</span> <span class="nn">browser_automation</span> <span class="kn">import</span> <span class="n">os_json_utils</span>
+<span class="kn">from</span> <span class="nn">browser_automation</span> <span class="kn">import</span> <span class="n">locate_elements</span>
+
+
+<div class="viewcode-block" id="Interactions"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions">[docs]</a><span class="k">class</span> <span class="nc">Interactions</span><span class="p">(</span><span class="n">browser_setup</span><span class="o">.</span><span class="n">Setup</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is class for doing manipulations with web elements using selenium drivers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_browser_options_json_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inherit from browser_setup.Setup and get the driver object for manipulation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">custom_browser_options_json_path</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Interactions.driver_wait"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.driver_wait">[docs]</a>    <span class="k">def</span> <span class="nf">driver_wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This makes the driver idle for time_duration.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        time_duration : float</span>
+<span class="sd">            This is the time for which we want out driver to stay idle to minimize load on web server.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        function</span>
+<span class="sd">            Returns wait time of time_duration</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span> <span class="n">time_duration</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.change_window"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.change_window">[docs]</a>    <span class="k">def</span> <span class="nf">change_window</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        It changes the current window to last window in browser</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Store the ID of the original window</span>
+        <span class="n">original_window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">current_window_handle</span>
+        <span class="c1"># ID of all windows</span>
+        <span class="n">all_windows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">window_handles</span>
+        <span class="n">needed_window</span> <span class="o">=</span> <span class="n">all_windows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># move to the last window</span>
+        <span class="k">if</span> <span class="n">needed_window</span> <span class="o">!=</span> <span class="n">original_window</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">needed_window</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.scroll_page"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.scroll_page">[docs]</a>    <span class="k">def</span> <span class="nf">scroll_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scroll_until</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">,</span> <span class="n">scroll_height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this scroll the page to load all of details</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        scroll_until : int</span>
+<span class="sd">            This is the total amount of scrolling.</span>
+<span class="sd">        scroll_height : int</span>
+<span class="sd">            This is how much scroll is happen in one go.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">scroll</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">scroll</span> <span class="o">&lt;</span> <span class="n">scroll_until</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s2">&quot;window.scrollTo(0,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">scroll</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; );&quot;</span><span class="p">)</span>
+            <span class="n">scroll</span> <span class="o">+=</span> <span class="n">scroll_height</span></div>
+
+<div class="viewcode-block" id="Interactions.get_current_webpage"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.get_current_webpage">[docs]</a>    <span class="k">def</span> <span class="nf">get_current_webpage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        html_source_code: complete html of page</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            It is html source code of current webpage.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">html_source_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span>
+        <span class="k">return</span> <span class="n">html_source_code</span></div>
+
+<div class="viewcode-block" id="Interactions.fill_input_on_webpage"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.fill_input_on_webpage">[docs]</a>    <span class="k">def</span> <span class="nf">fill_input_on_webpage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_seen_in_website</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">element_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">input_answer</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this function fill the input box on webpage with the help of wordSeenInWebsite, with the inputAnswer.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        word_seen_in_website : str</span>
+<span class="sd">            word that you see in input box on website</span>
+<span class="sd">        element_name : str</span>
+<span class="sd">            ID, Name, Class etc. of html element</span>
+<span class="sd">        input_answer : str</span>
+<span class="sd">            answer that you want to put in the input box of webpage</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">element_value</span> <span class="o">=</span> <span class="n">locate_elements</span><span class="o">.</span><span class="n">LocateElements</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_current_webpage</span><span class="p">())</span><span class="o">.</span><span class="n">get_element_value_from_html</span><span class="p">(</span>
+            <span class="n">word_seen_in_website</span><span class="p">,</span> <span class="n">element_name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">element_value</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="n">input_box</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                <span class="n">input_box</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">input_answer</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;executed&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;passing&#39;</span><span class="p">)</span>
+                <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Interactions.input_box_by_name"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.input_box_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">input_box_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">answer</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Input answer in input box by searching element Name</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            This is element locator Name, visit - https://selenium-python.readthedocs.io/</span>
+<span class="sd">        answer : str</span>
+<span class="sd">            This is the input string you want to put in input box on webpage.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user_field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="n">user_field</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">user_field</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.input_box_by_xpath"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.input_box_by_xpath">[docs]</a>    <span class="k">def</span> <span class="nf">input_box_by_xpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xpath_element</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">answer</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Input answer in input box by searching element Name</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        xpath_element : str</span>
+<span class="sd">            This is the address in xpath format, visit - https://selenium-python.readthedocs.io/</span>
+<span class="sd">        answer : str</span>
+<span class="sd">            This is the input string you want to put in input box on webpage.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">xpath_element</span><span class="p">)</span>
+            <span class="n">input_box</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">input_box</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.write_in_input_box"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.write_in_input_box">[docs]</a>    <span class="k">def</span> <span class="nf">write_in_input_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">input_answer</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Input answer in input box by searching element_locator_path</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_locator_type : str</span>
+<span class="sd">            these by selenium methods to locate web element. This function contains</span>
+<span class="sd">            CLASS_NAME, CSS_SELECTOR, ID, LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</span>
+<span class="sd">        element_locator_path : str</span>
+<span class="sd">            path of above given element_locator_type</span>
+<span class="sd">        input_answer : str</span>
+<span class="sd">            This is the input string you want to put in input box on webpage.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CLASS_NAME&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CSS_SELECTOR&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ID&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;LINK_TEXT&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;NAME&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PARTIAL_LINK_TEXT&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TAG_NAME&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;XPATH&quot;</span><span class="p">:</span>
+                <span class="n">input_box</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="s2">&quot;This function doesn&#39;t implement your element_locator_type, please try modifying this function or &quot;</span>
+                    <span class="s2">&quot;write separately!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">input_box</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">input_box</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">input_answer</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;element locator path can not be found&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.click_on_button"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.click_on_button">[docs]</a>    <span class="k">def</span> <span class="nf">click_on_button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        click on button on web by searching element_locator_path. exceptions silenced</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_locator_type : str</span>
+<span class="sd">            these by selenium methods to locate web element. This function contains CLASS_NAME, CSS_SELECTOR, ID,</span>
+<span class="sd">            LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</span>
+<span class="sd">        element_locator_path : str</span>
+<span class="sd">            path of above given element_locator_type</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CLASS_NAME&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CSS_SELECTOR&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ID&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;LINK_TEXT&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;NAME&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PARTIAL_LINK_TEXT&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TAG_NAME&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;XPATH&quot;</span><span class="p">:</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="s2">&quot;This function doesn&#39;t implement your element_locator_type, please try modifying this function or &quot;</span>
+                    <span class="s2">&quot;write separately!&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;element locator path can not be found&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.website_login"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.website_login">[docs]</a>    <span class="k">def</span> <span class="nf">website_login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                      <span class="n">username_element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">username_element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                      <span class="n">password_element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password_element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                      <span class="n">login_button_element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">login_button_element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                      <span class="n">login_option_element_locator_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">login_option_element_locator_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        login into website using these arguments Args: driver: url: username_element_name: username: this</span>
+<span class="sd">        is the username of person already sign up on website password: password for above username of account</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        url : str</span>
+<span class="sd">            This is link for website.</span>
+<span class="sd">        username_element_locator_type : str</span>
+<span class="sd">            This is locator type for username_element for username.</span>
+<span class="sd">        username_element_locator_path : str</span>
+<span class="sd">            This is the address of locator type.</span>
+<span class="sd">        username : str</span>
+<span class="sd">            This is the input username for given website.</span>
+<span class="sd">        password_element_locator_type : str</span>
+<span class="sd">            This is locator type for password_element.</span>
+<span class="sd">        password_element_locator_path : str</span>
+<span class="sd">            This is address of locator type for password.</span>
+<span class="sd">        password : str</span>
+<span class="sd">            This is the input password for given website.</span>
+<span class="sd">        login_button_element_locator_type : str</span>
+<span class="sd">            This is locator type for login button_element.</span>
+<span class="sd">        login_button_element_locator_path: str</span>
+<span class="sd">            This is the address of locator type for login_button.</span>
+<span class="sd">        login_option_element_locator_type : str</span>
+<span class="sd">            This is locator type for login_option button_element.</span>
+<span class="sd">        login_option_element_locator_path: str</span>
+<span class="sd">            This is the address of locator type for login_option.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Going to website: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">os_json_utils</span><span class="o">.</span><span class="n">RandomSleep</span><span class="p">()</span><span class="o">.</span><span class="n">sleep_for_random_time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">login_option_element_locator_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">click_on_button</span><span class="p">(</span><span class="n">login_option_element_locator_type</span><span class="p">,</span> <span class="n">login_option_element_locator_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_in_input_box</span><span class="p">(</span><span class="n">username_element_locator_type</span><span class="p">,</span> <span class="n">username_element_locator_path</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+        <span class="n">os_json_utils</span><span class="o">.</span><span class="n">RandomSleep</span><span class="p">()</span><span class="o">.</span><span class="n">sleep_for_random_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_in_input_box</span><span class="p">(</span><span class="n">password_element_locator_type</span><span class="p">,</span> <span class="n">password_element_locator_path</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">click_on_button</span><span class="p">(</span><span class="n">login_button_element_locator_type</span><span class="p">,</span> <span class="n">login_button_element_locator_path</span><span class="p">)</span>
+        <span class="n">os_json_utils</span><span class="o">.</span><span class="n">RandomSleep</span><span class="p">()</span><span class="o">.</span><span class="n">sleep_for_random_time</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Interactions.button_click_by_xpath"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.button_click_by_xpath">[docs]</a>    <span class="k">def</span> <span class="nf">button_click_by_xpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button_element_xpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ButtonElementXpath used to find and click on the button</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        button_element_xpath : str</span>
+<span class="sd">            This is the address of locator type &#39;XPATH&#39; for button element.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">button_element_xpath</span><span class="p">)</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.articles_gathering_loop"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.articles_gathering_loop">[docs]</a>    <span class="k">def</span> <span class="nf">articles_gathering_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">articles_name_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">initial_search_link</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                <span class="n">pdf_button_locator_element_xpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                <span class="n">destination_folder_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scroll</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">open_button</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is a sample loop for gathering the data(research articles).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        articles_name_list : list</span>
+<span class="sd">            This list contains the name of search argument in website search box.</span>
+<span class="sd">        initial_search_link : str</span>
+<span class="sd">            This is the link where we have to get data.</span>
+<span class="sd">        pdf_button_locator_element_xpath : str</span>
+<span class="sd">            This is the xpath address of the element of data download button.</span>
+<span class="sd">        destination_folder_path : str</span>
+<span class="sd">            This is the path of the folder where we want to move our downloaded data.</span>
+<span class="sd">        scroll : bool</span>
+<span class="sd">            This is the option to switch on scroll on the page.</span>
+<span class="sd">        open_button : bool</span>
+<span class="sd">            This is the additional dialogue box after clicking on download button.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">article_name</span> <span class="ow">in</span> <span class="n">articles_name_list</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_article_weblink_and_browse</span><span class="p">(</span><span class="n">initial_search_link</span><span class="p">,</span> <span class="n">article_name</span><span class="p">)</span>
+            <span class="n">os_json_utils</span><span class="o">.</span><span class="n">RandomSleep</span><span class="p">()</span><span class="o">.</span><span class="n">sleep_for_random_time</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">scroll</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">scroll_page</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">click_on_button</span><span class="p">(</span><span class="s2">&quot;xpath&quot;</span><span class="p">,</span> <span class="n">pdf_button_locator_element_xpath</span><span class="p">)</span>
+            <span class="n">os_json_utils</span><span class="o">.</span><span class="n">RandomSleep</span><span class="p">()</span><span class="o">.</span><span class="n">sleep_for_random_time</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">open_button</span><span class="p">:</span>
+                <span class="n">open_pdf_button_link</span> <span class="o">=</span> <span class="n">locate_elements</span><span class="o">.</span><span class="n">LocateElements</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_current_webpage</span><span class="p">())</span><span class="o">.</span><span class="n">get_link_via_regex</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">open_pdf_button_link</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file downloaded&quot;</span><span class="p">)</span>
+            <span class="n">os_json_utils</span><span class="o">.</span><span class="n">DownloadUtil</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">download_dir</span><span class="p">)</span><span class="o">.</span><span class="n">file_rename_and_moving</span><span class="p">(</span><span class="n">destination_folder_path</span><span class="p">,</span> <span class="n">article_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.create_article_weblink_and_browse"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.create_article_weblink_and_browse">[docs]</a>    <span class="k">def</span> <span class="nf">create_article_weblink_and_browse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initial_search_link</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">search_argument</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Some website can directly take search argument after their link. so this function put the search argument</span>
+<span class="sd">        after initial_search_link.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        initial_search_link : str</span>
+<span class="sd">            This is the web link that can be used to append search argument and return required data page.</span>
+<span class="sd">        search_argument : str</span>
+<span class="sd">            This can be any search string such as article name in research database.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">full_search_site_link</span> <span class="o">=</span> <span class="n">initial_search_link</span> <span class="o">+</span> <span class="n">search_argument</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;trying to download article: </span><span class="si">{</span><span class="n">search_argument</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">full_search_site_link</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.web_element_multiple_try_to_click_or_write"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.web_element_multiple_try_to_click_or_write">[docs]</a>    <span class="k">def</span> <span class="nf">web_element_multiple_try_to_click_or_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_element_locator_types_with_addresses</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                                                   <span class="n">write_something</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function takes list of element_locator types with addresses to click or write in input_box.</span>
+<span class="sd">        Note - This is worst case of finding different addresses for same web element on website</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        list_of_element_locator_types_with_addresses : str</span>
+<span class="sd">            This is the list with element_locator_types such as CLASS_NAME,CSS_SELECTOR, ID, LINK_TEXT, NAME,</span>
+<span class="sd">            PARTIAL_LINK_TEXT, TAG_NAME, XPATH with respective addresses. example- [&quot;id&quot;, &quot;result-header-1&quot;, &quot;xpath&quot;,</span>
+<span class="sd">            &quot;//h3[@id=&#39;result-header-1&#39;]&quot;]</span>
+<span class="sd">        write_something : str</span>
+<span class="sd">            default is None which signify that click() function will be executed. if you want to write something in</span>
+<span class="sd">            found web element, please replace None to your input string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">write_something</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">)</span>
+        <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">multiple_try_to_find_web_element</span><span class="p">(</span><span class="n">list_of_element_locator_types_with_addresses</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">web_element</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;web_element is not found: please revisit your strategy or create a new function&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">write_something</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">web_element</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">web_element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">web_element</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">write_something</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Interactions.multiple_try_to_find_web_element"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.multiple_try_to_find_web_element">[docs]</a>    <span class="k">def</span> <span class="nf">multiple_try_to_find_web_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_element_locator_types_with_addresses</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This functions uses multiple try statements to find_web_element</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        list_of_element_locator_types_with_addresses : str</span>
+<span class="sd">            This is the list with element_locator_types such as CLASS_NAME,CSS_SELECTOR, ID, LINK_TEXT, NAME,</span>
+<span class="sd">            PARTIAL_LINK_TEXT, TAG_NAME, XPATH with respective addresses. example- [&quot;id&quot;, &quot;result-header-1&quot;, &quot;xpath&quot;,</span>
+<span class="sd">            &quot;//h3[@id=&#39;result-header-1&#39;]&quot;]</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        object</span>
+<span class="sd">            The web_element object from selenium driver. selenium.webdriver.remote.webelement.WebElement</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">length_of_list_of_element_locator_types_with_addresses</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_element_locator_types_with_addresses</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="n">length_of_list_of_element_locator_types_with_addresses</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+                <span class="n">length_of_list_of_element_locator_types_with_addresses</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">web_element_found</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">element_locator_types_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">web_element_found</span><span class="p">:</span>
+            <span class="n">element_locator_path_index</span> <span class="o">=</span> <span class="n">element_locator_types_index</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">element_locator_types_index</span><span class="p">,</span> <span class="n">element_locator_path_index</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">try_element_address</span><span class="p">(</span><span class="n">list_of_element_locator_types_with_addresses</span><span class="p">[</span><span class="n">element_locator_types_index</span><span class="p">],</span>
+                                              <span class="n">list_of_element_locator_types_with_addresses</span><span class="p">[</span><span class="n">element_locator_path_index</span><span class="p">])</span>
+            <span class="n">web_element_found</span><span class="p">,</span> <span class="n">web_element</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">element_locator_types_index</span> <span class="o">+=</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">element_locator_types_index</span> <span class="o">&gt;</span> <span class="n">length_of_list_of_element_locator_types_with_addresses</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this stops&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">web_element</span></div>
+
+<div class="viewcode-block" id="Interactions.try_element_address"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.try_element_address">[docs]</a>    <span class="k">def</span> <span class="nf">try_element_address</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is try except block for searching element via element_locator_type, element_locator_path</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_locator_type : str</span>
+<span class="sd">            These by selenium methods to locate web element. This function contains</span>
+<span class="sd">                CLASS_NAME, CSS_SELECTOR, ID, LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</span>
+<span class="sd">        element_locator_path : str</span>
+<span class="sd">            This is the address of given element_locator_type.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple</span>
+<span class="sd">            This is bool representing if web_element found or not.</span>
+<span class="sd">            object - web element from selenium. selenium.webdriver.remote.webelement.WebElement</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trying&quot;</span><span class="p">)</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_web_element</span><span class="p">(</span><span class="n">element_locator_type</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+            <span class="n">web_element_found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">web_element_found</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">web_element_found</span><span class="p">,</span> <span class="n">web_element</span></div>
+
+<div class="viewcode-block" id="Interactions.find_web_element"><a class="viewcode-back" href="../../browser_automation.html#browser_automation.browser_manipulation.Interactions.find_web_element">[docs]</a>    <span class="k">def</span> <span class="nf">find_web_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element_locator_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        click on button on web by searching element_locator_path</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        element_locator_type : str</span>
+<span class="sd">            these by selenium methods to locate web element. This function contains</span>
+<span class="sd">                CLASS_NAME, CSS_SELECTOR, ID, LINK_TEXT, NAME, PARTIAL_LINK_TEXT, TAG_NAME, XPATH.</span>
+<span class="sd">        element_locator_path : str</span>
+<span class="sd">            This is the address of given element_locator_type.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        object</span>
+<span class="sd">            selenium.webdriver.remote.webelement.WebElement, It could be input_box or button etc.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CLASS_NAME&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;CSS_SELECTOR&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ID&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;LINK_TEXT&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;NAME&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PARTIAL_LINK_TEXT&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;TAG_NAME&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">element_locator_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;XPATH&quot;</span><span class="p">:</span>
+            <span class="n">web_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">element_locator_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This function doesn&#39;t implement your element_locator_type, please try modifying this &quot;</span>
+                             <span class="s2">&quot;function or write separately!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">web_element</span></div></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, chandravesh chaudhari.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

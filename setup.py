@@ -34,6 +34,6 @@ setuptools.setup(
     install_requires=['selenium',
                       'webdriver-manager'],
     packages=setuptools.find_packages(where="src"),
-    # packages=find_packages(exclude=('tests', 'docs')),
+    # packages=find_packages(exclude=('tests', 'docsrc')),
     python_requires=">=3.6",
 )
