@@ -13,3 +13,5 @@ src/browser_automationpy.egg-info/SOURCES.txt
 src/browser_automationpy.egg-info/dependency_links.txt
 src/browser_automationpy.egg-info/requires.txt
 src/browser_automationpy.egg-info/top_level.txt
+tests/test_advanced.py
+tests/test_basic.py
